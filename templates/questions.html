@@ -1,0 +1,22 @@
+<div class="container questions">
+    {% if data %}
+        {% for k, v in data.items() %}
+            <div id="question_{{k}}" class="box question">
+                <div class="media-content">
+                    <div class="content">
+                        <h2 class="title"><strong>{{ v }}</strong></h2>
+                        <button class="button is-link next-question" id="btn_{{k}}" data-value="{{k}}">Next</button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+            <div class="box question">
+                <div class="media-content">
+                    <div class="content">
+                        <h2 class="title"><strong>No more questions! Refresh for a new set of questions!</strong></h2>
+                        <a class="button is-link" id="refresh" href="/">Refresh</a>
+                    </div>
+                </div>
+            </div>
+    {% endif %}
+</div>
