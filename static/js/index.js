@@ -44,6 +44,18 @@
                 var question = document.querySelector("#question_"+numID);
                 question.remove();
             }
+
+            if (event.srcElement.id === "download") {
+                event.stopPropagation();
+                var downloadBtn = document.querySelector("#download");
+                var allQuestionsText = document.querySelector("#all-questions-text").textContent;
+                downloadBtn.href = createQuestionFile(allQuestionsText);
+            }
         });
     });
+
+    function createQuestionFile(data) {
+        var blob = new Blob([data], {type: "text/plain"});
+        return window.URL.createObjectURL(blob);
+    }
 })()
